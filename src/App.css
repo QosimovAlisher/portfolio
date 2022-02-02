@@ -1,0 +1,20 @@
+.app{
+    width: 100%;
+    margin: auto;
+    /* background-color: rgb(248, 246, 241); */
+    height: 100vh;
+    position: relative;
+}
+.content{
+    width: 60%;
+    height: 100vh;
+    margin: auto;
+    background-color: #e2f8fa;
+}
+
+.navbar{
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+    background-color: white;
+}
