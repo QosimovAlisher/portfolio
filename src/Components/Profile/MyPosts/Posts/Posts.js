@@ -4,7 +4,7 @@ const Posts = (props) => {
     
     return(
        <>
-       <h4>{props.posts}</h4>
+       <p>{props.posts}</p>
        <p>{props.likes}</p>
        </>
     )
