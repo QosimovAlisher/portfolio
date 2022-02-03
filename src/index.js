@@ -1,21 +1,21 @@
-import { state, subscribe } from "./Components/Redux/state";
+import  store from "./Components/Redux/state";
 
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {  addPost, updateNewPostText } from './Components/Redux/state';
 
 
- let rerenderEntreTre = () => {
+ let rerenderEntreTre = (state) => {
 
     ReactDOM.render(
-        <App state={state} updateNewPostText = {updateNewPostText} addPost={addPost} />
+        <App state= {state} updateNewPostText = {store.updateNewPostText.bind(store)}
+         addPost={store.addPost.bind(store)} />
         , document.getElementById('root')
     );
 
 }
 
-rerenderEntreTre(state)
+rerenderEntreTre(store.getState())
 
-subscribe(rerenderEntreTre); 
+store.subscribe(rerenderEntreTre); 
