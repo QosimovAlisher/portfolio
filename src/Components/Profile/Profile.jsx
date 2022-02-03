@@ -2,9 +2,6 @@ import React from "react"
 import Myposts from "./MyPosts/Myposts"
 import s from  './Profile.module.css'
 
-
-
-
 const Profile = (props) => {
    
     return (

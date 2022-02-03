@@ -7,17 +7,21 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
-
+import s from "./Profi.module.css"
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    position:'absolute',
+    right:'30px',
+    top:'10px',
+    backgroundColor:'silver'
   },
-  paper: {
-    marginRight: theme.spacing(2),
-  },
+ 
+  
 }));
 
-export default function MenuListComposition() {
+ let  MenuListComposition = () =>  {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -30,7 +34,6 @@ export default function MenuListComposition() {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
 
@@ -41,7 +44,6 @@ export default function MenuListComposition() {
     }
   }
 
-  // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
@@ -53,13 +55,6 @@ export default function MenuListComposition() {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <MenuList>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>My account</MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </Paper>
       <div>
         <Button
           ref={anchorRef}
@@ -67,18 +62,18 @@ export default function MenuListComposition() {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          Toggle Menu Grow
+         Ps
         </Button>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+        <Popper className={s.right} open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'left bottom' }}
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuList className={s.profil} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                    <MenuItem onClick={handleClose}>  <Link to=''>link</Link></MenuItem>
                     <MenuItem onClick={handleClose}>My account</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                   </MenuList>
@@ -88,6 +83,10 @@ export default function MenuListComposition() {
           )}
         </Popper>
       </div>
+      
     </div>
   );
 }
+
+export default MenuListComposition
+

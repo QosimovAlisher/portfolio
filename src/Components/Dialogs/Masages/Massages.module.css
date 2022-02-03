@@ -1,0 +1,11 @@
+  .massages {
+ border-radius:1rem ;
+ box-shadow: lightsteelblue  0.1rem 2px 2px 2px;
+ padding: 0.1rem 4px ;
+ width: 400px;
+ box-sizing: border-box;
+ }
+
+ .massages:nth-child(even){
+     margin-left: 100px;
+ }

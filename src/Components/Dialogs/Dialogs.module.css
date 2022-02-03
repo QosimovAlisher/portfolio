@@ -1,5 +1,19 @@
 .dialogs h1 {
     text-align: center;
-    padding: 2rem ;
+    /* padding: 2rem ; */
+}
+
+.dialogItem {
+ box-shadow: lightsteelblue  0.1rem 2px 2px 2px;
+    border-radius: 1rem;
+    padding: 0.5rem  1rem;
+}
+.whatsapp{
+    box-sizing: border-box;
+    margin: 3rem ;
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 

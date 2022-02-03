@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import s from "./Navbar.module.css";
 import img from "./images/facebook.png";
+// import MenuListComposition from './Profil/Profi';
 const Navbar = () => {
     return (
         <div className={s.navbar}>
@@ -16,14 +17,15 @@ const Navbar = () => {
             </div>
             <div className={s.navlinks}>
                 <Link to='/' > Home </Link>
-                <Link to='/about' > About</Link>
+             {/* /   <Link to='/about' > About</Link> */}
                 <Link to='/profile' > Profile</Link>
-                <Link to='/acount' > Aconut</Link>
-                <Link to='/services' > Services</Link>
+                {/* <Link to='/acount' > Aconut</Link> */}
+                {/* <Link to='/services' > Services</Link> */}
                 <Link to='/dialogs' > Dialogs</Link>
             </div >
             <div className={s.profil}>
-            <p>users  profil</p>
+                <h5>profil</h5>
+           {/* <MenuListComposition/> */}
             </div>
         </div>
     )
