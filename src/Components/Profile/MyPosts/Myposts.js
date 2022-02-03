@@ -2,19 +2,17 @@ import React from "react";
 import Posts from "./Posts/Posts";
 
 
-
-
-
 const Myposts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
 
     let onPostchange = () => {
         let newText = newPostElement.current.value;
-        props.updateNewPostText(newText)
+       let action  = ({type: 'UPDATE-NEW-POST-TEXT', newText: newText})
+       props.dispatch(action)
     }
     let newpost = props.posts.map(post => <Posts posts={post.massage} likes={post.likes} />)
 

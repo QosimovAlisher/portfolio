@@ -9,8 +9,7 @@ import App from './App';
  let rerenderEntreTre = (state) => {
 
     ReactDOM.render(
-        <App state= {state} updateNewPostText = {store.updateNewPostText.bind(store)}
-         addPost={store.addPost.bind(store)} />
+        <App state= {state}  dispatch = { store.dispatch.bind(store)} />
         , document.getElementById('root')
     );
 
