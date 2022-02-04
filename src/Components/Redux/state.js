@@ -1,5 +1,10 @@
+import { dialogsreduser } from "../reducers/dialogsreducer";
+import { profilereducer } from "../reducers/profilereducer";
+
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
+const ADD_DIALOG = 'ADDIALOG';
+const UPDATE_DIA = 'UPDATEDIA';
 
 
 
@@ -43,32 +48,47 @@ let store = {
         this._colSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                massage: this._state.profilePage.newPostText,
-                likes: 21
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._colSubscriber(this._state)
 
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._colSubscriber(this._state)
-        }
-        else if (action.type === 'ADDIALOG'){
-            let newDialog = {
-                id:5,
-                 massage:this._state.massagesPage.addDialogmassage
-            }
-            this._state.massagesPage.massage.push(newDialog)
-            this._state.massagesPage.massage.addDialogmassage = '' ;
-            this._colSubscriber(this._state)
-        } else if(action.type === 'UPDATEDIA'){
-            this._state.massagesPage.addDialogmassage = action.dialogText;
-            this._colSubscriber(this._state)
-        }
+
+        this._state.profilePage = profilereducer( this._state.profilePage ,action)
+
+        this._state.massagesPage = dialogsreduser( this._state.massagesPage , action)
+
+
+
+
+        this._colSubscriber(this._state)
+
+        // if (action.type === ADD_POST) {
+        //     let newPost = {
+        //         id: 5,
+        //         massage: this._state.profilePage.newPostText,
+        //         likes: 21
+        //     };
+        //     this._state.profilePage.posts.push(newPost);
+        //     this._state.profilePage.newPostText = '';
+        //     this._colSubscriber(this._state)
+
+        // } else if (action.type === UPDATE_NEW_POST_TEXT) {
+        //     this._state.profilePage.newPostText = action.newText;
+        //     this._colSubscriber(this._state)
+        // }
+
+
+
+        // else if (action.type === ADD_DIALOG){
+        //     let newDialog = {
+        //         id:5,
+        //          massage:this._state.massagesPage.addDialogmassage
+        //     }
+        //     this._state.massagesPage.massage.push(newDialog)
+        //     this._state.massagesPage.addDialogmassage = '' ;
+        //     this._colSubscriber(this._state)
+
+        // } else if(action.type === UPDATE_DIA){
+        //     this._state.massagesPage.addDialogmassage = action.dialogText;
+        //     this._colSubscriber(this._state)
+        // }
     }
 }
 export const addDialogPostActionCreator = () => ({type: 'ADDIALOG'})

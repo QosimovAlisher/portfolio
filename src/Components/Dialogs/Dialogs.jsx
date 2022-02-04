@@ -5,8 +5,8 @@ import s from "./Dialogs.module.css";
 import Massages from "./Masages/Massages";
 
 const Dialogs = (props) => {
-    let dialog = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
-    let massage = props.massage.map(m => <Massages massage = { m.massage} id={m.id} /> );
+    let dialog = props.massagesPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
+    let massage = props.massagesPage.massage.map(m => <Massages massage = { m.massage} id={m.id} /> );
 
 
 
@@ -26,7 +26,7 @@ let onDialogsChange = () => {
     return (
         <div className={s.dialogs}>
             <h1>Dialogs </h1>
-           <textarea  value={props.newTextDialog} ref={dialogElement}
+           <textarea  value={props.massagesPage.addDialogmassage} ref={dialogElement}
             onChange={onDialogsChange}></textarea>
             <button onClick={AddDialog}>add commit</button>
 

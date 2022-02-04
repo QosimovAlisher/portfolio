@@ -33,9 +33,10 @@ const App = (props) => {
 
 
 
-            <Route path="/dialogs" element={<Dialogs dialogs={props.state.massagesPage.dialogs}
+            <Route path="/dialogs" element={<Dialogs
+            //  dialogs={props.state.massagesPage.dialogs}
              dispatch = { props.dispatch}
-             massage={props.state.massagesPage.massage} />} />
+             massagesPage={props.state.massagesPage} />} />
             <Route path="/services" element={<Services />} />
             <Route path="/acount" element={<Acount />} />
           </Routes>
