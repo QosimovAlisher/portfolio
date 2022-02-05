@@ -1,14 +1,8 @@
-// import { dialogsreduser } from "./dialogsreducer";
 
 import dialogsreduser from "./dialogsreducer";
 import profilereducer from "./profilereducer";
 
-// import { profilereducer } from "./profilereducer";
-const ADD_DIALOG = 'ADDIALOG';
-const UPDATE_DIA = 'UPDATEDIA';
 
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_POST = 'ADD-POST';
 
 let store = {
     getState() {

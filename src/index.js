@@ -1,4 +1,4 @@
-import  store from "./Components/Redux/state";
+import store from "./Components/Redux/state";
 
 
 import React from 'react';
@@ -6,10 +6,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 
- let rerenderEntreTre = (state) => {
+let rerenderEntreTre = (state) => {
 
     ReactDOM.render(
-        <App state= {state}  dispatch = { store.dispatch.bind(store)} />
+        <App state={state} dispatch={store.dispatch.bind(store)} />
         , document.getElementById('root')
     );
 
@@ -17,4 +17,7 @@ import App from './App';
 
 rerenderEntreTre(store.getState())
 
-store.subscribe(rerenderEntreTre); 
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntreTre(state)
+}); 

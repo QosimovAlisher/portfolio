@@ -1,7 +1,25 @@
 const ADD_DIALOG = 'ADDIALOG';
 const UPDATE_DIA = 'UPDATEDIA';
 
-const dialogsreduser = (state, action) => {
+
+let initialSate = {
+    massage: [
+        { id: 1, massage: 'new massage' },
+        { id: 1, massage: 'new ' },
+        { id: 1, massage: 'new massage' },
+        { id: 1, massage: 'new age' },
+    ],
+  
+    dialogs: [
+        { id: 1, name: 'Alisher' },
+        { id: 2, name: 'massages dialogs' },
+        { id: 3, name: 'massages dialogs' },
+        { id: 4, name: 'massages dialogs' }
+
+    ],
+    addDialogmassage: 'salom'
+}
+const dialogsreduser = (state = initialSate, action) => {
 
 
 
@@ -36,4 +54,6 @@ const dialogsreduser = (state, action) => {
     //   return state
 }
 
+export const addDialogPostActionCreator = () => ({type: 'ADDIALOG'})
+export const updateDialogActionCreator = (dialogText) => ({type: 'UPDATEDIA',  dialogText:dialogText})
 export default dialogsreduser

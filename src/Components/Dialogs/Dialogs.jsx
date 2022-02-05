@@ -1,6 +1,5 @@
 import React from "react"
-import { addDialogPostActionCreator, updateDialogActionCreator } from "../Redux/state";
-// import { addDialogPostActionCreator, updateDialogActionCreator } from "../reducers/dialogsreducer";
+import { addDialogPostActionCreator, updateDialogActionCreator } from "../Redux/dialogsreducer";
 
 
 import DialogItem from "./DialogItem/DialogItem";

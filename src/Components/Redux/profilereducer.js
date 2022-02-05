@@ -2,10 +2,16 @@
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 
+let initialState = {
+    posts: [
+        { id: 1, massage: 'new masseges here ', likes: '123' },
+        { id: 3, massage: 'new masseges here ', likes: '123' },
+    ],
+    newPostText: 'it inkubatior'
+}
+ const profilereducer = (state = initialState, action) => {
 
- const profilereducer = (state, action) => {
-
-    // if (action.type === ADD_POST) {
+    // if (action.type === ADD_POST) { 
     //     let newPost = {
     //         id: 5,
     //         massage: state.newPostText,
@@ -35,5 +41,8 @@ const ADD_POST = 'ADD-POST';
     return state
     }
 }
+export const addPostActionCreator = () => ({ type: 'ADD-POST' })
+export const updateNewPostTextActionCreator = (newText) => ({ type: 'UPDATE-NEW-POST-TEXT', newText: newText })
+
 
 export default profilereducer
