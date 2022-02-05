@@ -1,5 +1,8 @@
 import React from "react";
 import { addPostActionCreator, updateNewPostTextActionCreator } from "../../Redux/state";
+// import { addPostActionCreator, updateNewPostTextActionCreator } from "../../reducers/profilereducer";
+
+
 import Posts from "./Posts/Posts";
 
 
@@ -18,14 +21,13 @@ const Myposts = (props) => {
     let newpost = props.posts.map(post => <Posts posts={post.massage} likes={post.likes} />)
 
     return (
-        <div>
+        <>
             <h1>My posts</h1>
             <textarea onChange={onPostchange} ref={newPostElement} value={props.newPostText} />
             <button onClick={addPost}>add commit</button>
             <h1> {newpost}</h1>
 
-
-        </div>
+        </>
     )
 }
 

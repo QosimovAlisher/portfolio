@@ -11,7 +11,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 const App = (props) => {
-
  
   return (
     <BrowserRouter>
@@ -31,11 +30,8 @@ const App = (props) => {
              />
 
 
-
-
             <Route path="/dialogs" element={<Dialogs
-            //  dialogs={props.state.massagesPage.dialogs}
-             dispatch = { props.dispatch}
+             dispatch = {props.dispatch}
              massagesPage={props.state.massagesPage} />} />
             <Route path="/services" element={<Services />} />
             <Route path="/acount" element={<Acount />} />

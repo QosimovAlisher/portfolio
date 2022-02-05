@@ -1,14 +1,20 @@
-import { dialogsreduser } from "../reducers/dialogsreducer";
-import { profilereducer } from "../reducers/profilereducer";
+// import { dialogsreduser } from "./dialogsreducer";
 
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_POST = 'ADD-POST';
+import dialogsreduser from "./dialogsreducer";
+import profilereducer from "./profilereducer";
+
+// import { profilereducer } from "./profilereducer";
 const ADD_DIALOG = 'ADDIALOG';
 const UPDATE_DIA = 'UPDATEDIA';
 
-
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
 
 let store = {
+    getState() {
+        return this._state;
+    },
+
     _state: {
         profilePage: {
             posts: [
@@ -20,9 +26,9 @@ let store = {
         massagesPage: {
             massage: [
                 { id: 1, massage: 'new massage' },
+                { id: 1, massage: 'new ' },
                 { id: 1, massage: 'new massage' },
-                { id: 1, massage: 'new massage' },
-                { id: 1, massage: 'new massage' },
+                { id: 1, massage: 'new age' },
             ],
           
             dialogs: [
@@ -32,30 +38,22 @@ let store = {
                 { id: 4, name: 'massages dialogs' }
 
             ],
-            // newTextDialog
             addDialogmassage: 'salom'
         }
     },
     _colSubscriber() {
         console.log('state ')
     },
-    getState() {
-        return this._state;
-    },
-
+  
 
     subscribe(observer) {
         this._colSubscriber = observer;
     },
     dispatch(action) {
 
-
         this._state.profilePage = profilereducer( this._state.profilePage ,action)
 
         this._state.massagesPage = dialogsreduser( this._state.massagesPage , action)
-
-
-
 
         this._colSubscriber(this._state)
 
@@ -93,7 +91,7 @@ let store = {
 }
 export const addDialogPostActionCreator = () => ({type: 'ADDIALOG'})
 export const updateDialogActionCreator = (dialogText) => ({type: 'UPDATEDIA',  dialogText:dialogText})
-//chiziqli funksiyaning qisqartirilgan tuzilishi
+// chiziqli funksiyaning qisqartirilgan tuzilishi
 export const addPostActionCreator = () => ({ type: 'ADD-POST' })
 export const updateNewPostTextActionCreator = (newText) => ({ type: 'UPDATE-NEW-POST-TEXT', newText: newText })
 
