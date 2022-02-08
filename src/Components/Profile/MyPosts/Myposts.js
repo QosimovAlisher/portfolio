@@ -1,7 +1,4 @@
 import React from "react";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../Redux/profilereducer";
-
-
 import Posts from "./Posts/Posts";
 
 
@@ -9,13 +6,12 @@ const Myposts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.dispatch(addPostActionCreator());
+      props.addPost();
     }
 
     let onPostchange = () => {
         let newText = newPostElement.current.value;
-       let action  = (updateNewPostTextActionCreator(newText))
-       props.dispatch(action)
+        props.onPostchange(newText)
     }
     let newpost = props.posts.map(post => <Posts posts={post.massage} likes={post.likes} />)
 

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   return (
     <div className={classes.root}>
       <div>
-        <Button
+        <Button className={s.b}
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"

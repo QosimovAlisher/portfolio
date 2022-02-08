@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import s from "./Navbar.module.css";
 import img from "./images/facebook.png";
-// import MenuListComposition from './Profil/Profi';
+import MenuListComposition from './Profil/Profi';
 const Navbar = () => {
     return (
         <div className={s.navbar}>
@@ -25,7 +25,7 @@ const Navbar = () => {
             </div >
             <div className={s.profil}>
                 <h5>profil</h5>
-           {/* <MenuListComposition/> */}
+           <MenuListComposition/>
             </div>
         </div>
     )
