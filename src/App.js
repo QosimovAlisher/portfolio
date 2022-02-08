@@ -7,36 +7,28 @@ import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import Services from './Components/Servis/Services';
 import Profile from './Components/Profile/Profile';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 
-const App = (props) => {
- 
+const App = () => {
+
   return (
-    <BrowserRouter>
-      <div className="app">
-        <div className="navbar">
-          <Navbar />
-        </div>
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-
-            <Route path="/profile" element={<Profile  store= {props.store}
-            />} 
-             />
-
-
-            <Route path="/dialogs" element={<DialogsContainer
-            store={props.store} />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/acount" element={<Acount />} />
-          </Routes>
-        </div>
+    <div className="app">
+      <div className="navbar">
+        <Navbar />
       </div>
-    </BrowserRouter>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/dialogs" element={<DialogsContainer />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/acount" element={<Acount />} />
+        </Routes>
+      </div>
+    </div>
   )
 }
 
